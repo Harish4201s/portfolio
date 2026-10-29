@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Harish Kumar - Personal Portfolio Website</title>
+<meta name="description" content="Harish Kumar - Full Stack MERN Developer portfolio">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ac:#ff3d5a;--bg:#0b0d1a;--bg2:#10132a;--card:#151935;--tx:#e9ebff;--mu:#9aa0c7;--ln:#23284d;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f4f5fb;--bg2:#fff;--card:#fff;--tx:#1b1e3a;--mu:#62678a;--ln:#e1e4f2;color-scheme:light}}
+:root[data-theme="light"]{--bg:#f4f5fb;--bg2:#fff;--card:#fff;--tx:#1b1e3a;--mu:#62678a;--ln:#e1e4f2;color-scheme:light}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(70px + env(safe-area-inset-top,0px))}
+body{margin:0;font:400 1rem/1.75 Poppins,system-ui,sans-serif;background:var(--bg);color:var(--tx);overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:70;background:#0b0d1a}
+a{color:inherit;text-decoration:none}
+.w{max-width:1140px;margin:0 auto;padding:0 24px}
+header{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:60;transition:.3s}
+header.s{background:#0b0d1af2;backdrop-filter:blur(10px);box-shadow:0 4px 24px #0006}
+.nav{height:70px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:700;font-size:1.5rem;color:#fff}.logo b{color:var(--ac)}
+nav ul{display:flex;gap:8px;list-style:none;margin:0;padding:0}
+nav a{display:block;padding:8px 16px;font-size:.88rem;font-weight:500;letter-spacing:1.2px;color:#cfd3f5;border-bottom:2px solid transparent}
+nav a:hover,nav a.on{color:#fff;border-color:var(--ac)}
+.bg{display:none;background:none;border:0;color:#fff;font-size:1.7rem;cursor:pointer}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;background:radial-gradient(circle at 75% 30%,#1c2150,#0b0d1a 60%);color:#fff;overflow:hidden;padding:100px 0 60px}
+#pc{position:absolute;inset:0;width:100%;height:100%}
+.hero .w{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(2.6rem,7vw,5rem);font-weight:700;line-height:1.1;margin:0 0 12px}
+.hero h1 span{color:var(--ac)}
+.role{font-size:1.6rem;font-weight:300;margin-bottom:28px;min-height:2.4rem}
+.role em{font-style:normal;color:var(--ac);font-weight:600}
+.cur{display:inline-block;width:3px;height:1.3rem;background:var(--ac);vertical-align:-3px;margin-left:4px;animation:b 1s steps(1) infinite}
+@keyframes b{50%{opacity:0}}
+.soc{display:flex;gap:14px;margin-bottom:26px}
+.soc a,.ct a{width:48px;height:48px;border-radius:50%;border:2px solid #ffffff40;display:grid;place-items:center;transition:.3s;color:#fff}
+.soc a:hover,.ct a:hover{background:var(--ac);border-color:var(--ac);transform:translateY(-4px) rotate(8deg)}
+.soc svg,.ct svg{width:20px;height:20px;fill:currentColor}
+.ct{display:flex;gap:14px}
+.ph{justify-self:center;position:relative;width:min(340px,75vw);aspect-ratio:1}
+.ph::before{content:"";position:absolute;inset:-14px;border-radius:50%;border:2px dashed var(--ac);animation:sp 24s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.ph div{position:absolute;inset:0;border-radius:50%;background:linear-gradient(145deg,var(--ac),#2a2f7a);display:grid;place-items:center;font-size:6.5rem;font-weight:700;color:#fff;box-shadow:0 0 70px color-mix(in srgb,var(--ac) 45%,transparent);overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover}
+section{padding:100px 0;position:relative}
+.alt{background:var(--bg2)}
+.t{text-align:center;margin-bottom:56px;position:relative}
+.t big{display:block;font-size:clamp(3rem,10vw,6.5rem);font-weight:700;color:transparent;-webkit-text-stroke:1px var(--ln);line-height:1;letter-spacing:2px;text-transform:uppercase}
+.t h2{margin:-1.1em 0 0;font-size:clamp(1.9rem,4vw,2.6rem);font-weight:700;position:relative}
+.t h2 span{color:var(--ac)}
+.t p{margin:8px 0 0;color:var(--mu);position:relative}
+.ab{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center}
+.ab .im{aspect-ratio:1;border-radius:20px;background:linear-gradient(145deg,#2a2f7a,var(--ac));display:grid;place-items:center;font-size:6rem;font-weight:700;color:#fff;position:relative;box-shadow:0 24px 60px #0007}
+.ab .im::after{content:"";position:absolute;inset:18px -18px -18px 18px;border:2px solid var(--ac);border-radius:20px;z-index:-1}
+.ab h3{font-size:1.9rem;margin:0 0 14px;line-height:1.3}.ab p{color:var(--mu);margin:0 0 24px}
+.btn{display:inline-block;background:var(--ac);color:#fff;padding:14px 36px;border-radius:50px;font:600 .95rem Poppins,sans-serif;border:0;cursor:pointer;transition:.3s;box-shadow:0 10px 26px color-mix(in srgb,var(--ac) 40%,transparent)}
+.btn:hover{transform:translateY(-4px)}
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px}
+.sv{background:var(--card);border:1px solid var(--ln);border-radius:18px;padding:40px 30px;text-align:center;transition:.35s}
+.sv:hover{transform:translateY(-10px);border-color:var(--ac);box-shadow:0 24px 50px #0005}
+.sv .i{width:84px;height:84px;margin:0 auto 20px;border-radius:50%;background:color-mix(in srgb,var(--ac) 15%,transparent);display:grid;place-items:center;font-size:2.4rem;transition:.35s}
+.sv:hover .i{background:var(--ac);transform:rotateY(180deg)}
+.sv h3{margin:0 0 10px;font-size:1.3rem}.sv p{margin:0;color:var(--mu);font-size:.94rem}
+.sk{display:grid;grid-template-columns:1fr 1fr;gap:26px 60px}
+.sk .r{display:flex;justify-content:space-between;font-weight:500}
+.bar{height:10px;background:var(--ln);border-radius:10px;margin-top:8px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--ac),color-mix(in srgb,var(--ac) 50%,#fff));border-radius:10px;transition:width 1.3s cubic-bezier(.2,.8,.2,1)}
+.pf{background:var(--card);border:1px solid var(--ln);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:.35s}
+.pf:hover{transform:translateY(-10px);box-shadow:0 26px 54px #0006}
+.th{height:200px;display:grid;place-items:center;font-size:4rem;background:linear-gradient(135deg,var(--ac),#1c2150);position:relative;overflow:hidden}
+.th::after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:#ffffff14;right:-60px;top:-70px}
+.pf .b{padding:26px;display:flex;flex-direction:column;gap:10px;flex:1}
+.pf h3{margin:0;font-size:1.35rem}.pf p{margin:0;color:var(--mu);font-size:.93rem}
+.pf .tl{font-size:.85rem}.pf .tl b{color:var(--ac)}
+.pf .btn{margin-top:auto;align-self:flex-start;padding:10px 26px;font-size:.88rem}
+.bl{background:var(--card);border:1px solid var(--ln);border-radius:18px;padding:30px;transition:.35s;border-top:4px solid var(--ac)}
+.bl:hover{transform:translateY(-8px)}
+.bl small{color:var(--ac);font-weight:600;letter-spacing:1px}.bl h3{margin:6px 0 8px;font-size:1.35rem}.bl p{margin:0;color:var(--mu);font-size:.93rem}
+.cn{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.cn h3{font-size:1.5rem;margin:0 0 22px}
+.fld{width:100%;padding:15px 18px;margin-bottom:16px;background:var(--card);border:1px solid var(--ln);border-radius:12px;color:var(--tx);font:inherit}
+.fld:focus{outline:2px solid var(--ac);border-color:transparent}
+textarea.fld{min-height:140px;resize:vertical}
+.if{display:flex;gap:18px;align-items:center;margin-bottom:22px}
+.if .e{flex:none;width:58px;height:58px;border-radius:50%;background:var(--ac);display:grid;place-items:center;font-size:1.4rem}
+.if h6{margin:0;color:var(--ac);font-size:.78rem;letter-spacing:2px;text-transform:uppercase}.if p{margin:0;word-break:break-word}
+footer{background:#080a14;color:#aab0d6;text-align:center;padding:26px 0;font-size:.92rem}
+footer b{color:#fff}
+.gear{position:fixed;right:0;top:42%;z-index:65;display:flex;align-items:flex-start;transform:translateX(calc(100% - 46px));transition:.35s}
+.gear.o{transform:none}
+.gear>button{width:46px;height:46px;border:0;background:var(--ac);color:#fff;font-size:1.4rem;cursor:pointer;border-radius:10px 0 0 10px}
+.gear>button svg{animation:sp 4s linear infinite}
+.gear .p{background:var(--card);border:1px solid var(--ln);padding:14px 16px;width:160px;border-radius:0 0 0 12px;margin-top:0}
+.gear small{display:block;font-weight:600;margin-bottom:10px}
+.dots{display:flex;gap:9px;flex-wrap:wrap}.dots i{width:24px;height:24px;border-radius:50%;cursor:pointer;border:2px solid var(--card);box-shadow:0 0 0 1px var(--ln);transition:.2s}.dots i:hover{transform:scale(1.2)}
+.tt{margin-top:12px;width:100%;padding:7px;border:1px solid var(--ln);background:var(--bg);color:var(--tx);border-radius:8px;cursor:pointer;font:inherit;font-size:.8rem}
+.rv{opacity:0;transform:translateY(30px);transition:.8s}.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.ph::before,.gear>button svg{animation:none}}
+@media(max-width:860px){
+.hero .w,.ab,.cn,.sk{grid-template-columns:1fr}
+.ph{order:-1;width:220px}.ph div{font-size:4.5rem}
+.bg{display:block}
+nav{position:absolute;left:0;right:0;top:70px;background:#0b0d1a;display:none;padding:8px 24px 18px}
+nav.o{display:block}nav ul{flex-direction:column}
+section{padding:70px 0}
+}
+</style>
+</head>
+<body>
+<header id="hd"><div class="w nav">
+<a class="logo" href="#home">Harish<b>Kumar</b></a>
+<button class="bg" id="bg" aria-label="Menu">☰</button>
+<nav id="nv"><ul>
+<li><a href="#home" class="on">HOME</a></li><li><a href="#about">ABOUT</a></li><li><a href="#blog">BLOG</a></li><li><a href="#portfolio">PORTFOLIO</a></li><li><a href="#contact">CONTACT</a></li>
+</ul></nav></div></header>
+
+<div class="gear" id="gr"><button id="gb" aria-label="Custom colors"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.4 13a7.5 7.5 0 000-2l2.1-1.6-2-3.4-2.5 1a7.6 7.6 0 00-1.7-1L15 3.3h-4l-.4 2.7a7.6 7.6 0 00-1.7 1l-2.5-1-2 3.4L6.6 11a7.5 7.5 0 000 2l-2.1 1.6 2 3.4 2.5-1a7.6 7.6 0 001.7 1l.4 2.7h4l.4-2.7a7.6 7.6 0 001.7-1l2.5 1 2-3.4zM13 15.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7z"/></svg></button>
+<div class="p"><small>Custom Colors</small><div class="dots" id="dots"></div><button class="tt" id="tt">Light / Dark mode</button></div></div>
+
+<main>
+<div class="hero" id="home"><canvas id="pc" aria-hidden="true"></canvas><div class="w">
+<div>
+<h1>Harish<br><span>Kumar</span></h1>
+<div class="role">I’m a <em id="ty"></em><span class="cur"></span></div>
+<div class="soc">
+<a href="https://github.com/Harish4201s" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 .5a11.5 11.5 0 00-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 015.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0012 .5z"/></svg></a>
+<a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 11-.01 5 2.5 2.5 0 01.01-5zM3 9.75h4V21H3zM9.75 9.75h3.8v1.6h.06c.53-1 1.82-2.05 3.75-2.05 4 0 4.74 2.64 4.74 6.07V21h-4v-4.9c0-1.17-.02-2.67-1.63-2.67-1.63 0-1.88 1.27-1.88 2.58V21h-4z"/></svg></a>
+</div>
+<div class="ct">
+<a href="mailto:harishkumarg1702@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 011 1v12a1 1 0 01-1 1H3a1 1 0 01-1-1V6a1 1 0 011-1zm9 7.2L4.5 7v.1L12 12.3 19.5 7.1V7z"/></svg></a>
+<a href="tel:+919360179908" aria-label="Phone"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.6a1 1 0 01-.25 1z"/></svg></a>
+</div></div>
+<div class="ph"><div id="pho">H<span style="opacity:.75">K</span></div></div>
+</div></div>
+
+<section id="about" class="alt"><div class="w">
+<div class="t rv"><big>About Me</big><h2>About <span>Me</span></h2><p>Get to Know me.</p></div>
+<div class="ab rv">
+<div class="im">HK</div>
+<div><h3>I’m a Full Stack MERN Developer based in Chennai, India</h3>
+<p>Web development is my calling. With 2.5 years of experience across MongoDB, Express.js, React.js and Node.js, I build scalable, tested web applications, from responsive interfaces to secure APIs with authentication and role-based access. I turn ideas into reliable, production-ready products.</p>
+<a class="btn" href="mailto:harishkumarg1702@gmail.com?subject=Resume%20request">Download CV</a></div>
+</div></div></section>
+
+<section id="services"><div class="w">
+<div class="t rv"><big>Services</big><h2>My <span>Services</span></h2><p>What I can do for you.</p></div>
+<div class="g3 rv">
+<div class="sv"><div class="i">📱</div><h3>Responsive Website</h3><p>Responsive design that gives users a smooth experience on phones, tablets and desktops, built with React, Tailwind CSS and Material UI.</p></div>
+<div class="sv"><div class="i">💻</div><h3>Web Development</h3><p>Dynamic full-stack applications with the MERN stack, Next.js, REST APIs, JWT authentication and well-modelled databases.</p></div>
+<div class="sv"><div class="i">🧪</div><h3>Test Automation</h3><p>Playwright end-to-end suites integrated with Azure DevOps CI/CD pipelines for dependable regression coverage and releases.</p></div>
+</div></div></section>
+
+<section id="skills" class="alt"><div class="w">
+<div class="t rv"><big>Skills</big><h2>My <span>Skills</span></h2><p>Technologies I use every day.</p></div>
+<div class="sk rv" id="sk"></div>
+</div></section>
+
+<section id="portfolio"><div class="w">
+<div class="t rv"><big>Portfolio</big><h2>My <span>Portfolio</span></h2><p>Some of my works.</p></div>
+<div class="g3 rv">
+<article class="pf"><div class="th">💰</div><div class="b"><h3>Track Your Expense</h3><p>Full-stack expense manager with secure login, categories, reports, spending charts and email reporting.</p><p class="tl"><b>Tools :</b> React.js, Node.js, Express.js, MongoDB</p><a class="btn" href="https://track-yur-expense.netlify.app/" target="_blank" rel="noopener">View Project</a></div></article>
+<article class="pf"><div class="th">👥</div><div class="b"><h3>Workforce Portal</h3><p>Employee management app with REST APIs, authentication, role-based access control and form validation.</p><p class="tl"><b>Tools :</b> Next.js, React.js, Express.js, MongoDB</p><a class="btn" href="#contact">Request Demo</a></div></article>
+<article class="pf"><div class="th">🧩</div><div class="b"><h3>Diagram Components</h3><p>Production-ready React and TypeScript diagram components with samples and automated tests for enterprise apps.</p><p class="tl"><b>Tools :</b> React, TypeScript, Playwright</p><a class="btn" href="#contact">Learn More</a></div></article>
+</div></div></section>
+
+<section id="blog" class="alt"><div class="w">
+<div class="t rv"><big>Blogs</big><h2>My <span>Blogs</span></h2><p>Topics I work with and write about.</p></div>
+<div class="g3 rv">
+<div class="bl"><small>REACT</small><h3>React.js</h3><p>A component-based library for building fast, interactive interfaces with reusable pieces and clean state management.</p></div>
+<div class="bl"><small>TYPESCRIPT</small><h3>TypeScript</h3><p>Static typing for JavaScript that catches mistakes early and makes large codebases easier to maintain.</p></div>
+<div class="bl"><small>NODE.JS</small><h3>Node.js & Express</h3><p>Building secure, scalable REST APIs with JWT authentication and role-based access control.</p></div>
+<div class="bl"><small>MONGODB</small><h3>MongoDB</h3><p>Flexible document modelling and fast queries for modern full-stack applications.</p></div>
+<div class="bl"><small>TESTING</small><h3>Playwright</h3><p>Reliable end-to-end test automation across browsers, wired into CI/CD for safer releases.</p></div>
+<div class="bl"><small>AI</small><h3>AI Integration</h3><p>Adding OpenAI-powered features to web apps to make products smarter and more useful.</p></div>
+</div></div></section>
+
+<section id="contact"><div class="w">
+<div class="t rv"><big>Contact Me</big><h2>Contact <span>Me</span></h2><p>Get In Touch.</p></div>
+<div class="cn rv">
+<div><h3>Message Me</h3><input class="fld" id="fn" placeholder="Your Name" aria-label="Name"><input class="fld" id="fe" type="email" placeholder="Your Email" aria-label="Email"><textarea class="fld" id="fm" placeholder="Your Message" aria-label="Message"></textarea><button class="btn" id="send" type="button">Send Message</button></div>
+<div><h3>Contact Info</h3>
+<div class="if"><div class="e">👤</div><div><h6>Name</h6><p>Harish Kumar</p></div></div>
+<div class="if"><div class="e">📍</div><div><h6>Location</h6><p>Chennai, Tamil Nadu</p></div></div>
+<div class="if"><div class="e">📞</div><div><h6>Call</h6><p>+91 93601 79908</p></div></div>
+<div class="if"><div class="e">✉️</div><div><h6>Email</h6><p>harishkumarg1702@gmail.com</p></div></div>
+</div></div></div></section>
+</main>
+<footer><b>© 2026 Harish Kumar</b> · All rights reserved</footer>
+
+<script>
+(function(){
+var r=document.documentElement,$=function(i){return document.getElementById(i)};
+var S=[["JavaScript",92],["React.js",92],["TypeScript",88],["Node.js",85],["Express.js",85],["MongoDB",84],["Next.js",80],["Playwright",88],["PostgreSQL",75],["Tailwind CSS",85]];
+S.forEach(function(s){var d=document.createElement('div');d.innerHTML='<div class="r"><span>'+s[0]+'</span><span>'+s[1]+'%</span></div><div class="bar"><i data-w="'+s[1]+'"></i></div>';$('sk').appendChild(d)});
+var R=["Full Stack MERN Developer","React.js Developer","Node.js Developer","Test Automation Engineer"],ri=0,ci=0,dl=false,ty=$('ty');
+(function k(){var w=R[ri];ty.textContent=w.slice(0,ci);if(!dl&&ci<w.length){ci++;setTimeout(k,90)}else if(!dl){dl=true;setTimeout(k,1500)}else if(ci>0){ci--;setTimeout(k,40)}else{dl=false;ri=(ri+1)%R.length;setTimeout(k,300)}})();
+var show=function(n){n.classList.add('in');n.querySelectorAll('.bar i').forEach(function(b){b.style.width=b.dataset.w+'%'})};
+try{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){show(e.target);io.unobserve(e.target)}})},{threshold:.12});document.querySelectorAll('.rv').forEach(function(n){io.observe(n)})}catch(x){document.querySelectorAll('.rv').forEach(show)}
+var C={red:'#ff3d5a',purple:'#9b59ff',malt:'#d4954a',green:'#1fc98a',blue:'#2f8cff',orange:'#ff8a1f'};
+Object.keys(C).forEach(function(k){var i=document.createElement('i');i.style.background=C[k];i.title='color-'+k;i.onclick=function(){r.style.setProperty('--ac',C[k]);try{localStorage.setItem('hk-ac',C[k])}catch(e){}};$('dots').appendChild(i)});
+try{var a=localStorage.getItem('hk-ac');if(a)r.style.setProperty('--ac',a);var th=localStorage.getItem('hk-th');if(th)r.setAttribute('data-theme',th)}catch(e){}
+$('gb').onclick=function(){$('gr').classList.toggle('o')};
+$('tt').onclick=function(){var n=getComputedStyle(r).colorScheme==='dark'?'light':'dark';r.setAttribute('data-theme',n);try{localStorage.setItem('hk-th',n)}catch(e){}};
+var nv=$('nv'),L=[].slice.call(nv.querySelectorAll('a'));
+$('bg').onclick=function(){nv.classList.toggle('o')};
+L.forEach(function(a){a.onclick=function(){nv.classList.remove('o')}});
+addEventListener('scroll',function(){$('hd').classList.toggle('s',scrollY>40);var c='#home';L.forEach(function(a){var s=document.querySelector(a.getAttribute('href'));if(s&&s.getBoundingClientRect().top<180)c=a.getAttribute('href')});L.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')===c)})},{passive:true});
+$('send').onclick=function(){location.href='mailto:harishkumarg1702@gmail.com?subject='+encodeURIComponent('Portfolio enquiry from '+$('fn').value)+'&body='+encodeURIComponent($('fm').value+'\n\n'+$('fn').value+' ('+$('fe').value+')')};
+var cv=$('pc'),cx=cv.getContext('2d'),P=[],W,H,mx=-999,my=-999;
+function rs(){W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight;P=[];var n=Math.min(90,Math.floor(W*H/14000));for(var i=0;i<n;i++)P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.5,vy:(Math.random()-.5)*.5})}
+rs();addEventListener('resize',rs);
+cv.parentNode.addEventListener('mousemove',function(e){var b=cv.getBoundingClientRect();mx=e.clientX-b.left;my=e.clientY-b.top});
+var still=matchMedia('(prefers-reduced-motion:reduce)').matches;
+(function f(){cx.clearRect(0,0,W,H);var ac=getComputedStyle(r).getPropertyValue('--ac').trim()||'#ff3d5a';
+P.forEach(function(p,i){if(!still){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1}
+cx.fillStyle=ac;cx.globalAlpha=.8;cx.beginPath();cx.arc(p.x,p.y,2,0,6.3);cx.fill();
+for(var j=i+1;j<P.length;j++){var q=P[j],d=Math.hypot(p.x-q.x,p.y-q.y);if(d<130){cx.globalAlpha=(1-d/130)*.35;cx.strokeStyle=ac;cx.beginPath();cx.moveTo(p.x,p.y);cx.lineTo(q.x,q.y);cx.stroke()}}
+var m=Math.hypot(p.x-mx,p.y-my);if(m<170){cx.globalAlpha=(1-m/170)*.6;cx.strokeStyle='#fff';cx.beginPath();cx.moveTo(p.x,p.y);cx.lineTo(mx,my);cx.stroke()}});
+requestAnimationFrame(f)})();
+})();
+</script>
+</body>
+</html>
